@@ -1,0 +1,212 @@
+{% extends 'users/userbase.html'%}
+{%block contents%}<br><br><br><br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ML page</title>
+    <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+</head>
+<body>
+<center>
+    <h1 align="center">Prediction Form</h1>
+    <p>
+        The Test Form Result is <h3><font color="RED">{{result}}</font> </h3>
+    </p>
+    <form action="{%url 'prediction_form'%}" method="post">
+        {%csrf_token%}
+    <table>
+        <thead>
+        <tr>
+            <th>Fields</th>
+            <th>Values</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>age</td>
+            <td><input type="number" class="form-control" name="age" required></td>
+        </tr>
+         <tr>
+            <td>sex</td>
+            <td>
+                <select class="form-control" name="sex" required>
+                    <option value="">--Select-- </option>
+                    <option value="1">Male</option>
+                    <option value="0">Female</option>
+                </select>
+            </td>
+        </tr>
+         <tr>
+            <td>steroid</td>
+            <td>
+                <select class="form-control" name="steroid" required>
+                    <option value="">--Select-- </option>
+                    <option value="1">True</option>
+                    <option value="0">False</option>
+                </select>
+            </td>
+        </tr>
+         <tr>
+            <td>antivirals</td>
+            <td>
+                <select class="form-control" name="antivirals" required>
+                    <option value="">--Select-- </option>
+                    <option value="1">True</option>
+                    <option value="0">False</option>
+                </select>
+            </td>
+        </tr>
+         <tr>
+            <td>fatigue</td>
+            <td>
+                <select class="form-control" name="fatigue" required>
+                    <option value="">--Select-- </option>
+                    <option value="1">True</option>
+                    <option value="0">False</option>
+                </select>
+            </td>
+        </tr>
+         <tr>
+            <td>malaise</td>
+            <td>
+                <select class="form-control" name="malaise" required>
+                    <option value="">--Select-- </option>
+                    <option value="1">True</option>
+                    <option value="0">False</option>
+                </select>
+            </td>
+        </tr>
+         <tr>
+            <td>anorexia</td>
+            <td>
+                <select class="form-control" name="anorexia" required>
+                    <option value="">--Select-- </option>
+                    <option value="1">True</option>
+                    <option value="0">False</option>
+                </select>
+            </td>
+        </tr>
+         <tr>
+            <td>liver_big</td>
+            <td>
+                <select class="form-control" name="liver_big" required>
+                    <option value="">--Select-- </option>
+                    <option value="1">True</option>
+                    <option value="0">False</option>
+                </select>
+            </td>
+        </tr>
+         <tr>
+            <td>liver_firm</td>
+            <td>
+                <select class="form-control" name="liver_firm" required>
+                    <option value="">--Select-- </option>
+                    <option value="1">True</option>
+                    <option value="0">False</option>
+                </select>
+            </td>
+        </tr>
+         <tr>
+            <td>spleen_palpable</td>
+            <td>
+                <select class="form-control" name="spleen_palpable" required>
+                    <option value="">--Select-- </option>
+                    <option value="1">True</option>
+                    <option value="0">False</option>
+                </select>
+            </td>
+        </tr>
+         <tr>
+            <td>spiders</td>
+            <td>
+                <select class="form-control" name="spiders" required>
+                    <option value="">--Select-- </option>
+                    <option value="1">True</option>
+                    <option value="0">False</option>
+                </select>
+            </td>
+        </tr>
+         <tr>
+            <td>ascites</td>
+            <td>
+                <select class="form-control" name="ascites" required>
+                    <option value="">--Select-- </option>
+                    <option value="1">True</option>
+                    <option value="0">False</option>
+                </select>
+            </td>
+        </tr>
+         <tr>
+            <td>varices</td>
+            <td>
+                <select class="form-control" name="varices" required>
+                    <option value="">--Select-- </option>
+                    <option value="1">True</option>
+                    <option value="0">False</option>
+                </select>
+            </td>
+        </tr>
+         <tr>
+            <td>bilirubin</td>
+            <td><input type="number" class="form-control" name="bilirubin" step="0.01" required></td>
+        </tr>
+         <tr>
+            <td>alk_phosphate</td>
+            <td><input type="number" class="form-control" name="alk_phosphate" required></td>
+        </tr>
+         <tr>
+            <td>sgot</td>
+            <td><input type="number" class="form-control" name="sgot" required></td>
+        </tr>
+         <tr>
+            <td>albumin</td>
+            <td><input type="number" class="form-control" name="albumin" step="0.01" required></td>
+        </tr>
+        <tr>
+            <td>protime</td>
+            <td><input type="number" class="form-control" name="protime" required></td>
+        </tr>
+          <tr>
+            <td>histology</td>
+            <td>
+                <select class="form-control" name="histology" required>
+                    <option value="">--Select-- </option>
+                    <option value="1">True</option>
+                    <option value="0">False</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Predict Result" class="form-control">
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</form>
+
+
+</center>
+</body>
+</html>
+{%endblock%}

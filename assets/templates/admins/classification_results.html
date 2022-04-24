@@ -1,0 +1,113 @@
+{% extends 'admins/adminbase.html'%}
+{%block contents%}<br><br><br><br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ML page</title>
+</head>
+<body>
+<center>
+
+    <h1 align="center">Accuracy Results</h1>
+
+
+    <!--<h2>Values: {{accuracy.values}}</h2>-->
+    <table align="center" border="2">
+        <tr style="backgroundcolor:lightpink">
+            <th>Algorithm</th>
+            <th>Accuracy</th>
+            <!--        <th>Precision</th>-->
+
+        </tr>
+        {% for x,y in accuracy.items %}
+        <tr>
+
+
+            <td>{{x}}</td>
+            <td>{{y}}</td>
+
+
+        </tr>
+        {% endfor %}
+
+
+    </table>
+    <br><br>
+    <h1 align="center">Precision Results</h1>
+    <table align="center" border="2">
+        <tr>
+            <th>Algorithm</th>
+            <th>precision</th>
+            <!--        <th>Precision</th>-->
+
+        </tr>
+
+        {% for x,y in precision.items %}
+        <tr>
+
+
+            <td>{{x}}</td>
+            <td>{{y}}</td>
+
+
+        </tr>
+        {% endfor %}
+
+
+    </table>
+    <br><br>
+    <h1 align="center">Recall Results</h1>
+    <table align="center" border="2">
+        <tr>
+            <th>Algorithm</th>
+            <th>Recall</th>
+            <!--        <th>Precision</th>-->
+
+        </tr>
+
+        {% for x,y in recall.items %}
+        <tr>
+
+
+            <td>{{x}}</td>
+            <td>{{y}}</td>
+
+
+        </tr>
+        {% endfor %}
+
+
+    </table>
+    <h1 align="center">F1-Score Results</h1>
+    <table align="center" border="2">
+        <tr>
+            <th>Algorithm</th>
+            <th>F1-score</th>
+        </tr>
+        {% for x,y in f1score.items %}
+        <tr>
+            <td>{{x}}</td>
+            <td>{{y}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h1 align="center">ROC  Results</h1>
+    <table align="center" border="2">
+        <tr>
+            <th>Algorithm</th>
+            <th>ROC Area</th>
+        </tr>
+        {% for x,y in roc.items %}
+        <tr>
+            <td>{{x}}</td>
+            <td>{{y}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</center>
+</body>
+</html>
+{%endblock%}

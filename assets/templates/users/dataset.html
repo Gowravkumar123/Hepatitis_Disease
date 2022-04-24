@@ -1,0 +1,36 @@
+{% extends 'users/userbase.html'%}
+{%block contents%}<br><br><br><br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ML page</title>
+    <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+</head>
+<body>
+<center>
+    <h1 align="center">Dataset View</h1>
+    {{df|safe}}
+
+
+</center>
+</body>
+</html>
+{%endblock%}
